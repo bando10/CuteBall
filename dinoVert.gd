@@ -17,6 +17,10 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("right"):
+		_animation_player.flip_h = false
+		_animation_player.play("walk")
+	if Input.is_action_pressed("left"):
+		_animation_player.flip_h = true
 		_animation_player.play("walk")
 	else:
 		_animation_player.stop()
