@@ -1,0 +1,50 @@
+Actions joueurs:
+    Gardien:
+        - voir la balle quand elle est dans sa zone de vision
+        - la prendre quand elle est trs proche
+        - bouger principalement dans sa zone
+            bouger optionnellement par le reste du terrain (monter ataquer quand son equipe a la balle)
+        - lancer fort la balle vers l'avant
+        - faire une passe a quelqu'un de son équipe
+        - arreter la balle (viser de l'intercepter) quand quelqu'un tire
+
+    Joueurs:
+        - Prendre la balle et avancer avec (dribler?)
+        - Faire des passes
+        - Tirer
+        - Bousculer d'atres joueurs pour défendre (?)
+            on pourrait attribuer a chaque joueur un attribut attack-power et defense power et on juge par rapport à taille * poids * power avec power compris entre 0,5 et 2 par ex
+
+    Objectifs:
+        D'équipe: gagner le match
+        Individuel:
+            Gardien: arreter les buts
+            Joueurs: marquer des buts
+        Par actions:
+            Ataque:
+            Defense:
+
+    Données:
+        - Stats des joueurs (vitesse poids force de tir aim)
+        - Dimensions du terrain
+        - Composantes des equipes
+        - Etat des équipes (possesion_balle ou pas, attaque/défense, position_balle, position_cages)
+        - État du match (score)
+
+
+
+Comportement gardien:
+    Si etat_equipe = defense alors retourner ou rester dans la zone
+    viser a se placer a une certaine distance des cages entre la balle et les cages + peut être bouger pour couvrir de la zone (?)
+    Si il a la balle: Soit la jeter fort vers l'avant (en fct de sa force) soit faire le passe a un joueur proche (attribut de precision)
+
+    Si etat-equipe = attaque alors zone d'action = notre moitié du terrain tout en restant le joueur le plus en recul de l'équipe.
+        si on perd possesion on rentre dans la zone
+
+
+
+Comportement ataquants:
+    Si état_equipe = attaque et personne entre le but et le joueur possèdant la balle alors foncer vers la zone de tir (à définir)
+    Sinon (si attaque) avancer autant qu'on peut et faire la passe (algo de choix de passe en fct du plus proche au but adverse ou la passe la plus facile)
+    (on sait quand on nous fait une passe ou pas?)
+    Si etat_equipe = defense, e
